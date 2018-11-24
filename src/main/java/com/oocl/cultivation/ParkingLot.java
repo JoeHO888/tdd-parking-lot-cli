@@ -16,6 +16,10 @@ public class ParkingLot {
     }
 
     public int getAvailableParkingPosition() {
-        return cars.size() - capacity;
+        return capacity-cars.size() ;
+    }
+
+    public void addCarTicketPair(ParkingTicket ticket, Car car){
+        cars.put(ticket,car);
     }
 }

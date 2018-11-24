@@ -3,7 +3,7 @@ package com.oocl.cultivation;
 public class ParkingBoy {
 
     private final ParkingLot parkingLot;
-    private String lastErrorMessage;
+    private String lastErrorMessage = "Unrecognized parking ticket.";
 
     public ParkingBoy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
@@ -11,16 +11,33 @@ public class ParkingBoy {
 
     public ParkingTicket park(Car car) {
         // TODO: Please implement the method
-        ParkingTicket ticket = new ParkingTicket(car);
-        return ticket;
+        if (parkingLot.getAvailableParkingPosition()>0) {
+            ParkingTicket ticket = new ParkingTicket(car);
+            parkingLot.addCarTicketPair(ticket,car);
+            lastErrorMessage = null;
+            return ticket;
+        }else{
+            lastErrorMessage = "The parking lot is full.";
+            return null;
+        }
     }
 
     public Car fetch(ParkingTicket ticket) {
         // TODO: Please implement the method
-        return ticket.getCar();
+        if (ticket!=null){
+            if (ticket.availability) {
+                return ticket.getCar();
+            }else{
+                lastErrorMessage = "Unrecognized parking ticket.";
+                return null;
+            }
+        }else{
+            lastErrorMessage = "Please provide your parking ticket.";
+            return  null;
+        }
     }
 
     public String getLastErrorMessage() {
-        return "Unrecognized parking ticket.";
+        return lastErrorMessage;
     }
 }
