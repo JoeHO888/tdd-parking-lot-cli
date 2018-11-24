@@ -149,6 +149,6 @@ class ParkingBoyFacts {
         parkingBoy.park(new Car());
         parkingBoy.park(new Car());
 
-        assertEquals("The parking lot is full.", parkingBoy.getLastErrorMessage());
+        assertEquals("Not enough position.", parkingBoy.getLastErrorMessage());
     }
 }
