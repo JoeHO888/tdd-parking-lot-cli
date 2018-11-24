@@ -9,6 +9,7 @@ public class ParkingBoy {
         this.parkingLot = parkingLot;
     }
 
+
     public ParkingTicket park(Car car) {
         // TODO: Please implement the method
         if (parkingLot.getAvailableParkingPosition()>0) {
