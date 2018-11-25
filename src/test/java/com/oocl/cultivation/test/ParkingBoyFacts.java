@@ -292,8 +292,6 @@ class ParkingBoyFacts {
 
         assertSame(fetchedB, carB);
 
-
-
         assertSame(2, parkingLotManager.getManagementListLength());
     }
 
@@ -310,6 +308,55 @@ class ParkingBoyFacts {
         Car fetched = parkingLotManager.fetch(ticket);
 
         assertSame(fetched, car);
+    }
+
+    // Story AC 3
+    @Test
+    void should_query_message_once_the_ticket_is_wrong_by_manager() {
+
+
+        final int capacityA = 9;
+        final int capacityB = 100;
+
+        ParkingLot[] parkingLotArray = new ParkingLot[2];
+        ParkingLot parkingLotA = new ParkingLot(capacityA);
+        ParkingLot parkingLotB = new ParkingLot(capacityB);
+        parkingLotArray[0] = parkingLotA;
+        parkingLotArray[1] = parkingLotB;
+
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotArray);
+
+        ParkingLot[] parkingLotArrayB = new ParkingLot[2];
+        ParkingLot parkingLotC = new ParkingLot(capacityA);
+        ParkingLot parkingLotD = new ParkingLot(capacityB);
+        parkingLotArrayB[0] = parkingLotC;
+        parkingLotArrayB[1] = parkingLotD;
+
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotArrayB);
+
+        ParkingLot[] parkingLotArrayC = new ParkingLot[2];
+        ParkingLot parkingLotE = new ParkingLot(capacityA);
+        ParkingLot parkingLotF = new ParkingLot(capacityB);
+        parkingLotArrayC[0] = parkingLotE;
+        parkingLotArrayC[1] = parkingLotF;
+        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLotArrayC);
+
+        parkingLotManager.addParkingBoyToManagementList(superSmartParkingBoy);
+        parkingLotManager.addParkingBoyToManagementList(smartParkingBoy);
+
+        Car carA = new Car();
+        ParkingTicket ticketA = parkingLotManager.assignParkingBoyToPark(smartParkingBoy,carA);
+
+        Car fetchedA = parkingLotManager.assignParkingBoyToFetch(smartParkingBoy,ticketA);
+
+        Car carB = new Car();
+        ParkingTicket ticketB = parkingLotManager.assignParkingBoyToPark(superSmartParkingBoy,carB);
+
+        Car fetchedB = parkingLotManager.assignParkingBoyToFetch(superSmartParkingBoy,ticketA);
+
+        String message = parkingLotManager.getLastErrorMessage(superSmartParkingBoy);
+
+        assertEquals("Unrecognized parking ticket.", message);
     }
 
 }

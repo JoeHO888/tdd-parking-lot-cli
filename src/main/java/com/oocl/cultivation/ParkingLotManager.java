@@ -29,5 +29,9 @@ public class ParkingLotManager extends ParkingBoy {
         return parkingBoy.fetch(ticket);
     }
 
+    public String getLastErrorMessage(ParkingBoy parkingBoy){
+        return parkingBoy.getLastErrorMessage();
+    }
+
 
 }
