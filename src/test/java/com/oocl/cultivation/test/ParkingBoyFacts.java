@@ -243,4 +243,21 @@ class ParkingBoyFacts {
         assertEquals(7, parkingLotA.getAvailableParkingPosition());
         assertEquals(87, parkingLotB.getAvailableParkingPosition());
     }
+
+
+
+    // Story 6 AC 2
+    @Test
+    void should_park_a_car_to_a_parking_lot_and_get_it_back_by_manager() {
+        ParkingLot[] parkingLotArray = new ParkingLot[1];
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLotArray[0] = parkingLot;
+        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLotArray);
+        Car car = new Car();
+        ParkingTicket ticket = parkingLotManager.park(car);
+
+        Car fetched = parkingLotManager.fetch(ticket);
+
+        assertSame(fetched, car);
+    }
 }
