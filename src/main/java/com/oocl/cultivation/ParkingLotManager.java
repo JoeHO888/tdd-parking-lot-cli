@@ -1,5 +1,7 @@
 package com.oocl.cultivation;
 
+import sun.security.krb5.internal.Ticket;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,17 @@ public class ParkingLotManager extends ParkingBoy {
         managementList.add(parkingBoy);
     }
 
-    public int getManagementList(){
+    public int getManagementListLength(){
         return managementList.size();
     }
+
+    public ParkingTicket assignParkingBoyToPark(ParkingBoy parkingBoy, Car car){
+        return parkingBoy.park(car);
+    }
+
+    public Car assignParkingBoyToFetch(ParkingBoy parkingBoy, ParkingTicket ticket){
+        return parkingBoy.fetch(ticket);
+    }
+
+
 }

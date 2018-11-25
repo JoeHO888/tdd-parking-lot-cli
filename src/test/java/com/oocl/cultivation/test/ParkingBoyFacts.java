@@ -278,8 +278,23 @@ class ParkingBoyFacts {
         parkingLotManager.addParkingBoyToManagementList(superSmartParkingBoy);
         parkingLotManager.addParkingBoyToManagementList(smartParkingBoy);
 
+        Car carA = new Car();
+        ParkingTicket ticketA = parkingLotManager.assignParkingBoyToPark(smartParkingBoy,carA);
 
-        assertSame(2, parkingLotManager.getManagementList());
+        Car fetchedA = parkingLotManager.assignParkingBoyToFetch(smartParkingBoy,ticketA);
+
+        Car carB = new Car();
+        ParkingTicket ticketB = parkingLotManager.assignParkingBoyToPark(superSmartParkingBoy,carB);
+
+        Car fetchedB = parkingLotManager.assignParkingBoyToFetch(superSmartParkingBoy,ticketB);
+
+        assertSame(fetchedA, carA);
+
+        assertSame(fetchedB, carB);
+
+
+
+        assertSame(2, parkingLotManager.getManagementListLength());
     }
 
     // Story 6 AC 2
@@ -296,4 +311,5 @@ class ParkingBoyFacts {
 
         assertSame(fetched, car);
     }
+
 }
