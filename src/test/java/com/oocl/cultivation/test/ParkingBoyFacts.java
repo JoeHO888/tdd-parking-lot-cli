@@ -245,6 +245,42 @@ class ParkingBoyFacts {
     }
 
 
+    // Story 6 AC 1
+    @Test
+    void should_add_parking_boy_to_management_list() {
+
+        final int capacityA = 9;
+        final int capacityB = 100;
+
+        ParkingLot[] parkingLotArray = new ParkingLot[2];
+        ParkingLot parkingLotA = new ParkingLot(capacityA);
+        ParkingLot parkingLotB = new ParkingLot(capacityB);
+        parkingLotArray[0] = parkingLotA;
+        parkingLotArray[1] = parkingLotB;
+
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotArray);
+
+        ParkingLot[] parkingLotArrayB = new ParkingLot[2];
+        ParkingLot parkingLotC = new ParkingLot(capacityA);
+        ParkingLot parkingLotD = new ParkingLot(capacityB);
+        parkingLotArrayB[0] = parkingLotC;
+        parkingLotArrayB[1] = parkingLotD;
+
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotArrayB);
+
+        ParkingLot[] parkingLotArrayC = new ParkingLot[2];
+        ParkingLot parkingLotE = new ParkingLot(capacityA);
+        ParkingLot parkingLotF = new ParkingLot(capacityB);
+        parkingLotArrayC[0] = parkingLotE;
+        parkingLotArrayC[1] = parkingLotF;
+        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLotArrayC);
+
+        parkingLotManager.addParkingBoyToManagementList(superSmartParkingBoy);
+        parkingLotManager.addParkingBoyToManagementList(smartParkingBoy);
+
+
+        assertSame(2, parkingLotManager.getManagementList());
+    }
 
     // Story 6 AC 2
     @Test
