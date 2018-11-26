@@ -11,11 +11,11 @@ public class ParkingBoyFactsStoryThree {
     // Story 3 AC 1
     @Test
     void should_park_car_when_previous_parkinglot_is_full() {
-        final int capacity = 1;
+        final int ParkingLotCapacity = 1;
 
         ParkingLot[] parkingLotArray = new ParkingLot[2];
-        ParkingLot parkingLotA = new ParkingLot(capacity);
-        ParkingLot parkingLotB = new ParkingLot(capacity);
+        ParkingLot parkingLotA = new ParkingLot(ParkingLotCapacity);
+        ParkingLot parkingLotB = new ParkingLot(ParkingLotCapacity);
         parkingLotArray[0] = parkingLotA;
         parkingLotArray[1] = parkingLotB;
 

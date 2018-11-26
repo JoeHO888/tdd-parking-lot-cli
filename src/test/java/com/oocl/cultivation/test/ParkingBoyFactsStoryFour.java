@@ -12,12 +12,12 @@ public class ParkingBoyFactsStoryFour {
     // Story 4 AC 1
     @Test
     void should_park_car_to_emptiest_parkinglot() {
-        final int capacityA = 9;
-        final int capacityB = 10;
+        final int parkingLotACapacity = 9;
+        final int parkingLotBCapacity = 10;
 
         ParkingLot[] parkingLotArray = new ParkingLot[2];
-        ParkingLot parkingLotA = new ParkingLot(capacityA);
-        ParkingLot parkingLotB = new ParkingLot(capacityB);
+        ParkingLot parkingLotA = new ParkingLot(parkingLotACapacity);
+        ParkingLot parkingLotB = new ParkingLot(parkingLotBCapacity);
         parkingLotArray[0] = parkingLotA;
         parkingLotArray[1] = parkingLotB;
 
