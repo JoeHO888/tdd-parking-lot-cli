@@ -47,7 +47,7 @@ public class SuperSmartParkingBoy extends ParkingBoy {
     private void updateParkingLotCapacityPercentageArray(ParkingLot[] parkingLotArray){
         for (int i = 0; i < this.parkingLotArray.length; i++) {
             parkingLot = this.parkingLotArray[i];
-            parkingLotCapacityPercentageArray[i] = (1.0*parkingLot.getAvailableParkingPosition())/parkingLot.capacity;
+            parkingLotCapacityPercentageArray[i] = (1.0*parkingLot.getAvailableParkingPosition())/parkingLot.getCapacity();
         }
 
     }

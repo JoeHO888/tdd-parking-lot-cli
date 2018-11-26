@@ -25,7 +25,6 @@ public class ParkingBoyFactsStoryFive {
             superSmartParkingBoy.park(new Car());
         }
 
-
         assertEquals(7, parkingLotA.getAvailableParkingPosition());
         assertEquals(87, parkingLotB.getAvailableParkingPosition());
     }
