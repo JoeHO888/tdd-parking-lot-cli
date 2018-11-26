@@ -170,79 +170,11 @@ class ParkingBoyFacts {
 
         assertEquals("Not enough position.", parkingBoy.getLastErrorMessage());
     }
-// Story 3 AC 1
-    @Test
-    void should_park_car_when_previous_parkinglot_is_full() {
-        final int capacity = 1;
-
-        ParkingLot[] parkingLotArray = new ParkingLot[2];
-        ParkingLot parkingLotA = new ParkingLot(capacity);
-        ParkingLot parkingLotB = new ParkingLot(capacity);
-        parkingLotArray[0] = parkingLotA;
-        parkingLotArray[1] = parkingLotB;
-
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLotArray);
-
-        parkingBoy.park(new Car());
-        parkingBoy.park(new Car());
-        assertEquals(0, parkingLotA.getAvailableParkingPosition());
-        assertEquals(0, parkingLotB.getAvailableParkingPosition());
-    }
-
-    // Story 4 AC 1
-    @Test
-    void should_park_car_to_emptiest_parkinglot() {
-        final int capacityA = 9;
-        final int capacityB = 10;
-
-        ParkingLot[] parkingLotArray = new ParkingLot[2];
-        ParkingLot parkingLotA = new ParkingLot(capacityA);
-        ParkingLot parkingLotB = new ParkingLot(capacityB);
-        parkingLotArray[0] = parkingLotA;
-        parkingLotArray[1] = parkingLotB;
-
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotArray);
-
-        smartParkingBoy.park(new Car());
-
-        assertEquals(9, parkingLotA.getAvailableParkingPosition());
-        assertEquals(9, parkingLotB.getAvailableParkingPosition());
-    }
-
-    // Story 5 AC 1
-    @Test
-    void should_park_car_to_emptiest_parkinglot_in_terms_of_capacity_percentage() {
-        final int capacityA = 9;
-        final int capacityB = 100;
-
-        ParkingLot[] parkingLotArray = new ParkingLot[2];
-        ParkingLot parkingLotA = new ParkingLot(capacityA);
-        ParkingLot parkingLotB = new ParkingLot(capacityB);
-        parkingLotArray[0] = parkingLotA;
-        parkingLotArray[1] = parkingLotB;
-
-        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotArray);
-
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
-        superSmartParkingBoy.park(new Car());
 
 
-        assertEquals(7, parkingLotA.getAvailableParkingPosition());
-        assertEquals(87, parkingLotB.getAvailableParkingPosition());
-    }
+
+
+
 
 
 }
