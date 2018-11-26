@@ -1,8 +1,6 @@
 package com.oocl.cultivation.test;
-
 import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class ParkingBoyFacts {
@@ -170,11 +168,5 @@ class ParkingBoyFacts {
 
         assertEquals("Not enough position.", parkingBoy.getLastErrorMessage());
     }
-
-
-
-
-
-
 
 }
